@@ -32,6 +32,9 @@ jobs:
     - name: Create Database & Lock
       run: |
         mkdir -p database
+        mkdir -p storage/framework/cache
+        mkdir -p storage/framework/sessions
+        mkdir -p storage/framework/views
         touch database/database.sqlite
         touch storage/installed.lock
 
@@ -39,6 +42,9 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
+        APP_KEY: base64:uP2VbgOpxm3Qv6dFfNqWzFz/P0S+7pXpU0bLzQfWn9E=
+        LICENSE_HUB_URL: http://127.0.0.1:8000
+        LICENSE_HUB_PRODUCT_SECRET: lh_test_secret
       run: |
         php artisan migrate --force
-        php artisan test
+        php artisan test --without-tty
