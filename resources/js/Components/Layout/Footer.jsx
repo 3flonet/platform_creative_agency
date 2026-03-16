@@ -25,8 +25,9 @@ const Footer = ({ settings = {}, getSetting = (key, fallback) => fallback }) => 
                 <div className="text-[10px] text-white/20 tracking-[0.2em] uppercase font-medium">
                     © {currentYear} {siteName} All Rights Reserved.
                 </div>
-                <div className="text-[10px] text-white/20 tracking-[0.2em] uppercase font-medium">
-                    Designed with Passion & Precision
+                <div className="text-[10px] text-white/20 tracking-[0.2em] uppercase font-medium flex gap-4">
+                    <span>Designed with Passion & Precision</span>
+                    <a href="/docs" className="hover:text-red-600 transition-colors">Documentation</a>
                 </div>
             </div>
         </footer>

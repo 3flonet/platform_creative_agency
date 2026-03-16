@@ -8,6 +8,9 @@ use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\InstallerController;
+use App\Http\Controllers\DocumentationController;
+
+Route::get('/docs', [DocumentationController::class, 'index'])->name('documentation');
 
 Route::get('/', function () {
     $isInstalled = file_exists(storage_path('installed.lock'));
