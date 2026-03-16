@@ -23,6 +23,17 @@ jobs:
     - name: Update Dependencies
       run: composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install NPM dependencies
+      run: npm install
+
+    - name: Build assets
+      run: npm run build
+
     - name: Generate key
       run: php artisan key:generate
 
