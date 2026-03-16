@@ -67,6 +67,10 @@ Tergantung pada tipe server Anda:
    php artisan key:generate
    ```
    *(Tanpa APP_KEY, server akan menampilkan error `MissingAppKeyException`).*
+3. **Penting**: Jalankan perintah symlink untuk menghubungkan folder upload ke folder publik:
+   ```bash
+   php artisan storage:link
+   ```
 3. Pastikan izin akses (folder permissions) untuk folder `storage` dan `bootstrap/cache` diatur ke **775** atau **777** agar server bisa menulis file.
 4. Akses domain Anda di browser; **Automatic Web Installer** akan muncul untuk memandu Anda melakukan konfigurasi Database dan Lisensi tanpa perlu mengedit file secara manual.
 
@@ -74,7 +78,7 @@ Tergantung pada tipe server Anda:
 > Jika Anda menjumpai error "No application encryption key has been specified" saat pertama kali membuka browser, pastikan Anda sudah menjalankan `php artisan key:generate` di terminal server.
 
 #### 4. Finalisasi
-Setelah instalasi Wizard selesai, sistem akan membuat file `storage/installed.lock`. Project Anda kini siap digunakan secara publik.
+Setelah instalasi Wizard selesai dan symlink terpasang, sistem akan membuat file `storage/installed.lock`. Project Anda kini siap digunakan secara publik.
 
 ---
 
