@@ -16,6 +16,12 @@ use Tests\TestCase;
 
 pest()->extend(TestCase::class)
     ->use(RefreshDatabase::class)
+    ->beforeEach(function () {
+        // 🔒 Mock License Service to always be active during tests
+        $this->mock(\App\Services\LicenseService::class, function ($mock) {
+            $mock->shouldReceive('check')->andReturn('active');
+        });
+    })
     ->in('Feature');
 
 /*
