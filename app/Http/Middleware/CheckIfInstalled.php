@@ -34,7 +34,7 @@ class CheckIfInstalled
         
         // If already installed and trying to access installer routes
         if (file_exists($lockFile) && $request->is('install*')) {
-            return redirect()->to('/');
+            return redirect('/');
         }
 
         return $next($request);
