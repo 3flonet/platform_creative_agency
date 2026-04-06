@@ -31,4 +31,4 @@ jobs:
       continue-on-error: true # Might fail on Windows runners, but that's okay
 
     - name: Execute tests
-      run: vendor/bin/phpunit
+      run: vendor\bin\pest
